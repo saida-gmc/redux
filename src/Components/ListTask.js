@@ -12,6 +12,7 @@ const ListTask = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
+  console.log(newText);
 
   const change = (e) => {
     setNewText(e.target.value);
