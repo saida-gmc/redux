@@ -1,7 +1,7 @@
-import { task } from "./Task";
+import { tasks } from "./Task";
 
 export const initialState = {
-  task: task,
+  task: tasks,
 };
 const reducer = (state = initialState, { type, payload }) => {
   // const { type, payload } = action;
@@ -24,6 +24,11 @@ const reducer = (state = initialState, { type, payload }) => {
         task: state.task.map((el, index) =>
           el.id === payload.id ? { ...el, isDone: !el.isDone } : el
         ),
+      };
+    case "DELETE":
+      return {
+        ...state,
+        task: state.task.splice(payload, 1),
       };
 
     default:

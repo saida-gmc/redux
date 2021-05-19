@@ -16,3 +16,9 @@ export const Editdone = (id, newtext) => {
     payload: { id },
   };
 };
+export const Delete = (id, newtext) => {
+  return {
+    type: "DELETE",
+    payload: { id },
+  };
+};
