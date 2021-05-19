@@ -3,36 +3,35 @@ import { useDispatch } from "react-redux";
 import { Edittask, Delete, Editdone } from "./Action";
 import { Modal, Button } from "react-bootstrap";
 
-const Tasks = ({ task }) => {
-  console.log(task);
-  // const [newText, setNewText] = useState(task.description);
-  // const [show, setShow] = useState(false);
-  // const handleShow = () => setShow(true);
-  // const handleClose = () => setShow(false);
-  // const dispatch = useDispatch();
-  // console.log(newText);
+const Tasks = ({ tasktodo }) => {
+  console.log(tasktodo);
+  const [newText, setNewText] = useState(tasktodo.description);
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const dispatch = useDispatch();
+  console.log(newText);
 
-  // const change = (e) => {
-  //   setNewText(e.target.value);
-  // };
-  // console.log(task.id);
-  // const handleEdit = () => {
-  //   dispatch(Edittask(task.id, newText));
-  //   handleClose();
-  // };
-  // const handleDelete = () => {
-  //   dispatch(Delete(task.id));
-  // };
-  // const handleDone = () => {
-  //   dispatch(Editdone(task.id));
-  // };
+  const change = (e) => {
+    setNewText(e.target.value);
+  };
+  console.log(tasktodo.id);
+  const handleEdit = () => {
+    dispatch(Edittask(tasktodo.id, newText));
+    handleClose();
+  };
+  const handleDelete = () => {
+    dispatch(Delete(tasktodo.id));
+  };
+  const handleDone = () => {
+    dispatch(Editdone(tasktodo.id));
+  };
   return (
     <div>
-      {/* <h1>{task.description}</h1>
+      <h1>{tasktodo.description}</h1>
       <Button variant="primary" onClick={handleShow}>
         Edit
       </Button>
-
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header>
           <Modal.Title>please enter the new task</Modal.Title>
@@ -52,7 +51,7 @@ const Tasks = ({ task }) => {
       <button variant="primary" onClick={handleDelete}>
         Delete
       </button>
-      <input type="checkbox" onClick={handleDone} /> */}
+      <input type="checkbox" onClick={handleDone} />
     </div>
   );
 };

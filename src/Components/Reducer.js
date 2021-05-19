@@ -1,8 +1,11 @@
-import { tasks } from "./Task";
-
-export const initialState = {
-  task: tasks,
+const initialState = {
+  task: [
+    { id: Math.random(), description: "wake up", isDone: true },
+    { id: Math.random(), description: "study", isDone: false },
+    { id: Math.random(), description: "sleep", isDone: true },
+  ],
 };
+
 const reducer = (state = initialState, { type, payload }) => {
   // const { type, payload } = action;
   switch (type) {

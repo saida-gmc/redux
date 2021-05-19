@@ -4,7 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const StatusTasks = () => {
   const tasks = useSelector((state) => state.task);
-  console.log(tasks);
 
   return (
     <div>
