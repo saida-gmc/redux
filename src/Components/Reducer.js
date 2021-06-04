@@ -1,8 +1,8 @@
 const initialState = {
   task: [
-    { id: Math.random(), description: "wake up", isDone: true },
+    { id: Math.random(), description: "wake up", isDone: false },
     { id: Math.random(), description: "study", isDone: false },
-    { id: Math.random(), description: "sleep", isDone: true },
+    { id: Math.random(), description: "sleep", isDone: false },
   ],
 };
 
@@ -27,11 +27,6 @@ const reducer = (state = initialState, { type, payload }) => {
         task: state.task.map((el, index) =>
           el.id === payload.id ? { ...el, isDone: !el.isDone } : el
         ),
-      };
-    case "DELETE":
-      return {
-        ...state,
-        task: state.task.splice(payload, 1),
       };
 
     default:

@@ -1,36 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Edittask, Delete, Editdone } from "./Action";
+import { Edittask, Editdone } from "./Action";
 import { Modal, Button } from "react-bootstrap";
 
 const Tasks = ({ tasktodo }) => {
-  console.log(tasktodo);
+  /* console.log(tasktodo);*/
   const [newText, setNewText] = useState(tasktodo.description);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
-  console.log(newText);
+  // console.log(newText);
 
   const change = (e) => {
     setNewText(e.target.value);
   };
-  console.log(tasktodo.id);
+
   const handleEdit = () => {
     dispatch(Edittask(tasktodo.id, newText));
     handleClose();
   };
-  const handleDelete = () => {
-    dispatch(Delete(tasktodo.id));
-  };
+
   const handleDone = () => {
     dispatch(Editdone(tasktodo.id));
   };
+
   return (
-    <div>
+    <div className="todo">
       <h1>{tasktodo.description}</h1>
       <Button variant="primary" onClick={handleShow}>
-        Edit
+        Edit Task
       </Button>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header>
@@ -48,10 +47,8 @@ const Tasks = ({ tasktodo }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <button variant="primary" onClick={handleDelete}>
-        Delete
-      </button>
-      <input type="checkbox" onClick={handleDone} />
+
+      <input type="checkbox" className="input" onClick={handleDone} />
     </div>
   );
 };

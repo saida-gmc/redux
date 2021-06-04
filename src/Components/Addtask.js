@@ -1,37 +1,34 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Addtask } from "./Action";
+import { Button } from "react-bootstrap";
 
 const AddTask = () => {
   const dispatch = useDispatch();
   const [des, setDes] = useState("");
-  const handleAdd = () => {
-    dispatch(
-      Addtask({
-        id: Math.random(),
-        description: des,
-        isDone: false,
-      })
-    );
-    empty();
+  // const empty = () => setDes("");
+  const handleAdd = (e) => {
+    e.preventDefault();
+    des &&
+      dispatch(
+        Addtask({
+          id: Math.random(),
+          description: des,
+          isDone: false,
+        })
+      );
+    setDes("");
   };
-  const empty = () => ({
-    Id: "",
-    description: "",
-    isDone: "",
-  });
-  const change = (e) => setDes(e.target.value);
-  empty();
 
-  const [newTask, SetNewTask] = useState({
-    Id: Math.random(),
-    description: "",
-    isDone: false,
-  });
+  const change = (e) => setDes(e.target.value);
+
   return (
-    <div>
+    <div class="add">
+      <h1>ToDo Application</h1>
       <input onChange={change} type="text" />
-      <button onClick={handleAdd}>add todo</button>
+      <Button variant="success" onClick={handleAdd}>
+        add todo
+      </Button>
     </div>
   );
 };

@@ -17,7 +17,9 @@ const StatusTasks = () => {
             {tasks
               .filter((el) => !el.isDone)
               .map((el, key) => (
-                <h2 key={el.id}>{el.description}</h2>
+                <h2 style={{ color: "red" }} key={el.id}>
+                  {el.description}
+                </h2>
               ))}
           </Col>
           <Col>
@@ -28,7 +30,9 @@ const StatusTasks = () => {
             {tasks
               .filter((el) => el.isDone)
               .map((el, key) => (
-                <h2 key={el.id}>{el.description}</h2>
+                <h2 style={{ color: "green" }} key={el.id}>
+                  {el.description}
+                </h2>
               ))}
           </Col>
         </Row>

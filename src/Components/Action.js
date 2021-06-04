@@ -10,13 +10,13 @@ export const Edittask = (id, newtext) => {
     payload: { id, newtext },
   };
 };
-export const Editdone = (id, newtext) => {
+export const Editdone = (id) => {
   return {
     type: "EDITDONE",
     payload: { id },
   };
 };
-export const Delete = (id, newtext) => {
+export const Delete = (id) => {
   return {
     type: "DELETE",
     payload: { id },
